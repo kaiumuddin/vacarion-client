@@ -7,6 +7,8 @@ import ServiceDetails from "../components/ServiceDetails";
 import MyReviews from "../components/MyReviews";
 import AddService from "../components/AddService";
 import Blog from "../components/Blog";
+import Signin from "../components/Signin";
+import Signup from "../components/Signup";
 
 
 const router = createBrowserRouter([
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/signin',
+                element: <Signin></Signin>
+            },
+            {
+                path: '/signup',
+                element: <Signup></Signup>
             },
             {
                 path: '/services',

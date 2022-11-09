@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
-                <div className="px-6 w-full flex flex-wrap items-center justify-between">
+                <div className="container mx-auto px-6 w-full flex flex-wrap items-center justify-between">
                     <div className="flex items-center">
                         <button
                             className="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2"
