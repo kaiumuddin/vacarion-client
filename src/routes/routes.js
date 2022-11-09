@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import Services from "../components/Services";
+import ServiceDetails from "../components/ServiceDetails";
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>
+            },
+            {
+                path: '/servicesid',
+                element: <ServiceDetails></ServiceDetails>
             },
         ]
     }

@@ -2,16 +2,16 @@ import React from 'react';
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import {Link} from "react-router-dom";
 
-const ServiceCard = () => {
+const ServiceSection = () => {
 
     const imgUrl = "https://mdbootstrap.com/img/new/standard/nature/182.jpg";
 
     return (
         <PhotoProvider>
-            <div className="rounded-lg shadow-lg bg-white max-w-sm">
+            <div className="rounded-lg shadow-lg bg-white w-full">
                 <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                     <PhotoView src={imgUrl}>
-                        <img className="rounded-t-lg" src={imgUrl} alt="" />
+                        <img className="rounded-t-lg w-full" src={imgUrl} alt="" />
                     </PhotoView>
                 </a>
                 <div className="p-6">
@@ -20,15 +20,12 @@ const ServiceCard = () => {
                         Price
                     </p>
                     <p className="text-gray-700 text-base mb-4">
-                        Description
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, voluptate placeat enim doloremque culpa iure pariatur. Minima quam architecto harum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur autem iusto temporibus. Corrupti, atque dolor necessitatibus vitae sapiente quia? Eveniet temporibus velit quia quidem porro corrupti odit dignissimos, maxime voluptatem modi, voluptatum natus aperiam consectetur numquam reiciendis ipsum vero perspiciatis? Recusandae optio obcaecati atque dolor provident mollitia aut adipisci earum.
                     </p>
-                    <Link to='/servicesid' className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">View Details</Link>
                 </div>
             </div>
         </PhotoProvider>
-
-
     );
 };
 
-export default ServiceCard;
+export default ServiceSection;
