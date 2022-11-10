@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
 import {AuthContext} from "../context/UserContext";
 
-const AddReviewCard = ({_id}) => {
+const AddReviewCard = ({serviceDetails}) => {
 
     const {user} = useContext(AuthContext);
+    const {_id} = serviceDetails;
 
     const handleAddReview = (event) => {
         event.preventDefault();
@@ -14,6 +15,7 @@ const AddReviewCard = ({_id}) => {
 
         const newReview = {
             serviceId: _id,
+            serviceName: serviceDetails.service,
             reviewerName: user.displayName,
             revieweremail: user.email,
             reviewerImg: user.photoURL,

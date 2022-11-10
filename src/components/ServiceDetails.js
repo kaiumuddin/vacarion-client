@@ -8,12 +8,12 @@ const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
     const {_id} = serviceDetails;
 
-    console.log(_id);
+    console.log(serviceDetails);
 
     return (
         <div className="container mx-auto">
             <ServiceSection serviceDetails={serviceDetails}></ServiceSection>
-            <ReviewSection _id={_id}></ReviewSection>
+            <ReviewSection serviceDetails={serviceDetails}></ReviewSection>
         </div>
     );
 };

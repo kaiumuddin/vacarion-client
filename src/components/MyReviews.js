@@ -1,7 +1,44 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {AuthContext} from "../context/UserContext";
 import MyReviewsRow from "./MyReviewsRow";
 
 const MyReviews = () => {
+
+    const {user} = useContext(AuthContext);
+    const [myReviews, setMyReviews] = useState([]);
+
+    useEffect(() => {
+        const url = `http://localhost:5000/reviewbyemail/${user.email}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(fromDb => {
+                console.log(fromDb);
+                setMyReviews(fromDb);
+            });
+
+
+    }, [user.email]);
+
+
+    const handleDelete = (id) => {
+        const procced = window.confirm('Are you sure, you want to cancel this order');
+        if (procced) {
+            fetch(`http://localhost:5000/review/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('Deleted successfully');
+                        const remaining = myReviews.filter(odr => odr._id !== id);
+                        setMyReviews(remaining);
+                    }
+                });
+
+        }
+    };
+
     return (
         <div className="container mx-auto">
             <div className="flex flex-col">
@@ -26,10 +63,14 @@ const MyReviews = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <MyReviewsRow></MyReviewsRow>
-                                    <MyReviewsRow></MyReviewsRow>
-                                    <MyReviewsRow></MyReviewsRow>
-                                    <MyReviewsRow></MyReviewsRow>
+                                    {
+                                        myReviews.map(((mySingleReview, idx) => <MyReviewsRow
+                                            key={mySingleReview._id}
+                                            mySingleReview={mySingleReview}
+                                            idx={idx}
+                                            handleDelete={handleDelete}
+                                        ></MyReviewsRow>))
+                                    }
 
                                 </tbody>
                             </table>

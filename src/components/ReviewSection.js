@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import AddReviewCard from "./AddReviewCard";
 import ReviewSectionCard from "./ReviewSectionCard";
 
-const ReviewSection = ({_id}) => {
+const ReviewSection = ({serviceDetails}) => {
 
     const [reviews, setReviews] = useState([]);
-
+    const {_id} = serviceDetails;
 
     useEffect(() => {
         const url = `http://localhost:5000/review/${_id}`;
@@ -20,7 +20,7 @@ const ReviewSection = ({_id}) => {
         <div className="my-10">
             <h2 className="text-center text-5xl mb-10">Latest Reviews</h2>
             <div className="grid grid-cols-3 gap-36">
-                <AddReviewCard _id={_id}></AddReviewCard>
+                <AddReviewCard serviceDetails={serviceDetails}></AddReviewCard>
 
                 {
                     reviews.map((singleReview) => <ReviewSectionCard
