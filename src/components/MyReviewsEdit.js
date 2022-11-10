@@ -1,5 +1,6 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const MyReviewsEdit = () => {
     const data = useLoaderData();
@@ -25,8 +26,7 @@ const MyReviewsEdit = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    alert('updated one');
-
+                    toast.success('Updated Successfully');
                 }
             });
 

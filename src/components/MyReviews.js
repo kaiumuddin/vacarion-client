@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
 import MyReviewsRow from "./MyReviewsRow";
 
@@ -30,7 +31,7 @@ const MyReviews = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('Deleted successfully');
+                        toast.success('Deleted Successfully');
                         const remaining = myReviews.filter(odr => odr._id !== id);
                         setMyReviews(remaining);
                     }
@@ -38,6 +39,14 @@ const MyReviews = () => {
 
         }
     };
+
+    if (myReviews.length === 0) {
+        return (
+            <div className="h-screen flex justify-center items-center ">
+                <div className="text-5xl">No reviews were added</div>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto">

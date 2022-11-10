@@ -1,4 +1,5 @@
 import React from 'react';
+import {toast} from "react-toastify";
 
 const AddService = () => {
 
@@ -32,11 +33,14 @@ const AddService = () => {
             .then(fromDb => {
                 console.log('from server : ', fromDb);
                 if (fromDb.acknowledged) {
-                    alert('Order Placed successfuly');
+                    toast.success('Service Added Successfully');
                     form.reset();
                 }
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err);
+                toast.error('Service Added failed');
+            });
     };
 
     return (

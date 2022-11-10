@@ -10,6 +10,7 @@ import Blog from "../components/Blog";
 import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 import MyReviewsEdit from "../components/MyReviewsEdit";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -41,16 +42,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
             },
             {
                 path: '/reviewedit/:id',
-                element: <MyReviewsEdit></MyReviewsEdit>,
+                element: <PrivateRoute><MyReviewsEdit></MyReviewsEdit></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/reviewedit/${params.id}`)
             },
             {
                 path: '/addservice',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/blog',

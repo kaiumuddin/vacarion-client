@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
 
 const AddReviewCard = ({serviceDetails}) => {
@@ -36,11 +37,15 @@ const AddReviewCard = ({serviceDetails}) => {
             .then(fromDb => {
                 console.log('from server : ', fromDb);
                 if (fromDb.acknowledged) {
-                    alert('Review Placed successfuly');
+                    toast.success('Review Added Successfully');
                     form.reset();
                 }
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.error(err);
+                toast.error('Review Added failed');
+
+            });
 
     };
 
