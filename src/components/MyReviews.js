@@ -11,14 +11,18 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
 
+    console.log(user.email);
+
     useEffect(() => {
-        // const url = `https://vacarion-server.vercel.app/reviewbyemail/${user.email}`;
-        const url = `https://vacarion-server.vercel.app/reviewbyemail?email=${user.email}`;
-        fetch(url, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('vacarion-token')}`
-            }
-        })
+        // const url = `http://localhost:5000/reviewbyemail/${user.email}`;
+        const url = `https://vacarion-server.vercel.app/reviewbyemail/${user.email}`;
+        // const url = `https://vacarion-server.vercel.app/reviewbyemail?email=${user.email}`;
+        // {
+        //     // headers: {
+        //     //     authorization: `Bearer ${localStorage.getItem('vacarion-token')}`
+        //     // }
+        // }
+        fetch(url)
             .then(res => res.json())
             .then(fromDb => {
                 setMyReviews(fromDb);
