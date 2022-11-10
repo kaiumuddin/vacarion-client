@@ -5,15 +5,13 @@ import {toast} from "react-toastify";
 const MyReviewsEdit = () => {
     const data = useLoaderData();
     const {_id, reviewText} = data;
-    console.log(data);
-    console.log(reviewText);
+
 
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
         const text = form.text.value;
 
-        console.log(text);
 
         fetch(`https://vacarion-server.vercel.app/review/${_id}`, {
             method: 'PATCH',
@@ -24,7 +22,6 @@ const MyReviewsEdit = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     toast.success('Updated Successfully');
                 }

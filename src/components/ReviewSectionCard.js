@@ -2,15 +2,13 @@ import React from 'react';
 
 const ReviewSectionCard = ({singleReview}) => {
     const {serviceId, reviewerName, revieweremail, reviewerImg, reviewText} = singleReview;
-    console.log(reviewerImg);
 
     return (
-        <div className="mb-12 md:mb-0 max-w-md shadow-lg p-5">
+        <div className="mb-12 w-full md:mb-0 max-w-md shadow-lg p-5">
             <div className="flex justify-center mb-6">
                 <img alt="" src={reviewerImg ? reviewerImg : ""} className="rounded-full shadow-lg w-32" />
             </div>
             <h5 className="text-lg font-bold mb-4">{reviewerName}</h5>
-            <h6 className="font-medium text-blue-600 mb-4">{revieweremail}</h6>
             <p className="mb-4">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="quote-left"
                     className="w-6 pr-2 inline-block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

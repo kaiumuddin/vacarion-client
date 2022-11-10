@@ -7,7 +7,7 @@ const ServiceSection = ({serviceDetails}) => {
 
     return (
         <PhotoProvider>
-            <div className="rounded-lg shadow-lg bg-white w-full">
+            <div className="my-10 rounded-lg shadow-lg bg-white w-full">
                 <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
                     <PhotoView src={img}>
                         <img className="rounded-t-lg w-full" src={img} alt="" />
@@ -16,7 +16,7 @@ const ServiceSection = ({serviceDetails}) => {
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{service}</h5>
                     <p className="text-gray-700 text-base mb-4">
-                        {price}
+                        Price: ${price}
                     </p>
                     <p className="text-gray-700 text-base mb-4">
                         {description}

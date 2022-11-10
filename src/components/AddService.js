@@ -23,7 +23,6 @@ const AddService = () => {
             img,
         };
 
-        console.log(newService);
 
         fetch('https://vacarion-server.vercel.app/services', {
             method: 'POST',
@@ -34,7 +33,6 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(fromDb => {
-                console.log('from server : ', fromDb);
                 if (fromDb.acknowledged) {
                     toast.success('Service Added Successfully');
                     form.reset();
@@ -57,7 +55,7 @@ const AddService = () => {
                     </div>
                     <div className="form-group mb-6">
                         <label htmlFor="name" className="form-label inline-block mb-2 text-gray-700">Description</label>
-                        <input type="text" name="description" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name"
+                        <textarea rows="20" type="text" name="description" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name"
                             aria-describedby="" placeholder="Enter Description" required />
                     </div>
                     <div className="form-group mb-6">

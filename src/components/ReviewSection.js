@@ -22,7 +22,7 @@ const ReviewSection = ({serviceDetails}) => {
     return (
         <div className="my-10">
             <h2 className="text-center text-5xl mb-10">Latest Reviews</h2>
-            <div className="grid grid-cols-3 gap-36">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-20 justify-items-center">
                 {
                     user && <AddReviewCard serviceDetails={serviceDetails}></AddReviewCard>
                 }
@@ -43,4 +43,4 @@ const ReviewSection = ({serviceDetails}) => {
     );
 };
 
-export default ReviewSection;;;;;
+export default ReviewSection;

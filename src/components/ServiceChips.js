@@ -13,7 +13,6 @@ const ServiceChips = () => {
                 return res.json();
             })
             .then(fromDb => {
-                // console.log(fromDb);
                 setServices(fromDb);
             });
     }, []);

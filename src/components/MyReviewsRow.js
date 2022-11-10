@@ -7,7 +7,6 @@ const MyReviewsRow = ({idx, mySingleReview, handleDelete}) => {
 
     const {_id, serviceId, serviceName, reviewText, reviewerName, revieweremail, reviewerImg} = mySingleReview;
 
-    console.log(_id);
 
     return (
         <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">

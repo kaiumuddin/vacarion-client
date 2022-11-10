@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const LoginToReviewCard = () => {
     return (
-        <div className="mb-12 md:mb-0 max-w-md shadow-lg p-5 flex justify-center items-center gap-5">
+        <div className="w-full mb-12 md:mb-0 max-w-md shadow-lg p-5 flex justify-center items-center gap-5">
             <div className="text-center lg:text-left">
                 <Link
                     to="/signin"

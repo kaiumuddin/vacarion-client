@@ -11,7 +11,6 @@ const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
     const {_id} = serviceDetails;
 
-    console.log(serviceDetails);
 
     return (
         <div className="container mx-auto">

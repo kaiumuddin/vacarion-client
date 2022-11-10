@@ -12,11 +12,15 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        const url = `https://vacarion-server.vercel.app/reviewbyemail/${user.email}`;
-        fetch(url)
+        // const url = `https://vacarion-server.vercel.app/reviewbyemail/${user.email}`;
+        const url = `https://vacarion-server.vercel.app/reviewbyemail?email=${user.email}`;
+        fetch(url, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('vacarion-token')}`
+            }
+        })
             .then(res => res.json())
             .then(fromDb => {
-                console.log(fromDb);
                 setMyReviews(fromDb);
             });
 
@@ -32,7 +36,6 @@ const MyReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if (data.deletedCount > 0) {
                         toast.success('Deleted Successfully');
                         const remaining = myReviews.filter(odr => odr._id !== id);
