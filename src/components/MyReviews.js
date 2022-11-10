@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
+import useTitle from "../hooks/useTitle";
 import MyReviewsRow from "./MyReviewsRow";
 
 const MyReviews = () => {
+
+    useTitle('My Reviews');
 
     const {user} = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
@@ -49,45 +52,50 @@ const MyReviews = () => {
     }
 
     return (
-        <div className="container mx-auto">
-            <div className="flex flex-col">
-                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                        <div className="overflow-hidden">
-                            <table className="min-w-full">
-                                <thead className="bg-white border-b">
-                                    <tr>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            #
-                                        </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Service Name
-                                        </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Review
-                                        </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Edit/Delete
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        myReviews.map(((mySingleReview, idx) => <MyReviewsRow
-                                            key={mySingleReview._id}
-                                            mySingleReview={mySingleReview}
-                                            idx={idx}
-                                            handleDelete={handleDelete}
-                                        ></MyReviewsRow>))
-                                    }
 
-                                </tbody>
-                            </table>
+        <div className="h-screen">
+            <div className="text-center text-3xl my-10">My Reviews</div>
+            <div className="container mx-auto">
+                <div className="flex flex-col">
+                    <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                            <div className="overflow-hidden">
+                                <table className="min-w-full">
+                                    <thead className="bg-white border-b">
+                                        <tr>
+                                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                #
+                                            </th>
+                                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Service Name
+                                            </th>
+                                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Review
+                                            </th>
+                                            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Edit/Delete
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            myReviews.map(((mySingleReview, idx) => <MyReviewsRow
+                                                key={mySingleReview._id}
+                                                mySingleReview={mySingleReview}
+                                                idx={idx}
+                                                handleDelete={handleDelete}
+                                            ></MyReviewsRow>))
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 

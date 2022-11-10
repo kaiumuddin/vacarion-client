@@ -3,6 +3,7 @@ import {FcGoogle} from "react-icons/fc";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
+import useTitle from "../hooks/useTitle";
 import LoadingSpinner from "./LoadingSpinner";
 
 const Signin = () => {
@@ -10,10 +11,9 @@ const Signin = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-
-
-
     const {signin, signInWithGoogle, loading} = useContext(AuthContext);
+
+    useTitle('Signin');
 
     //  Submit 
     const handleSubmit = event => {

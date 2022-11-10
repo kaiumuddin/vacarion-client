@@ -3,11 +3,14 @@ import {FcGoogle} from "react-icons/fc";
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
+import useTitle from "../hooks/useTitle";
 import LoadingSpinner from "./LoadingSpinner";
 const Signup = () => {
 
     const {createUser, updateUserProfile, signInWithGoogle, loading} = useContext(AuthContext);
     const navigate = useNavigate();
+
+    useTitle('Signup');
 
     // Handle submit
     const handleSubmit = event => {
