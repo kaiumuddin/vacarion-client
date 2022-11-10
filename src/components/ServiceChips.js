@@ -6,7 +6,7 @@ const ServiceChips = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/services3`;
+        const url = `https://vacarion-server.vercel.app/services3`;
 
         fetch(url)
             .then(res => {

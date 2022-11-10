@@ -26,7 +26,7 @@ const AddReviewCard = ({serviceDetails}) => {
         console.log(newReview);
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://vacarion-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

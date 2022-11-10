@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://vacarion-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/myreviews',
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/reviewedit/:id',
                 element: <PrivateRoute><MyReviewsEdit></MyReviewsEdit></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/reviewedit/${params.id}`)
+                loader: ({params}) => fetch(`https://vacarion-server.vercel.app/reviewedit/${params.id}`)
             },
             {
                 path: '/addservice',

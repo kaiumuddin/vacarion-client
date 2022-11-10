@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import LoadingSpinner from "./LoadingSpinner";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
@@ -6,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/services`;
+        const url = `https://vacarion-server.vercel.app/services`;
 
         fetch(url)
             .then(res => {
@@ -17,6 +18,11 @@ const Services = () => {
                 setServices(fromDb);
             });
     }, []);
+
+    if (services.length === 0)
+        return (
+            <LoadingSpinner></LoadingSpinner>
+        );
 
 
     return (

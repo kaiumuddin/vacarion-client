@@ -9,7 +9,7 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/reviewbyemail/${user.email}`;
+        const url = `https://vacarion-server.vercel.app/reviewbyemail/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(fromDb => {
@@ -24,7 +24,7 @@ const MyReviews = () => {
     const handleDelete = (id) => {
         const procced = window.confirm('Are you sure, you want to cancel this order');
         if (procced) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://vacarion-server.vercel.app/review/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

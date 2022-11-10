@@ -11,7 +11,7 @@ const ReviewSection = ({serviceDetails}) => {
     const {_id} = serviceDetails;
 
     useEffect(() => {
-        const url = `http://localhost:5000/review/${_id}`;
+        const url = `https://vacarion-server.vercel.app/review/${_id}`;
         fetch(url)
             .then(res => res.json())
             .then(fromDb => {

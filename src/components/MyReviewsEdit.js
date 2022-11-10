@@ -15,7 +15,7 @@ const MyReviewsEdit = () => {
 
         console.log(text);
 
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://vacarion-server.vercel.app/review/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

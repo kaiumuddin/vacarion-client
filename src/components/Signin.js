@@ -3,6 +3,7 @@ import {FcGoogle} from "react-icons/fc";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {AuthContext} from "../context/UserContext";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Signin = () => {
 
@@ -11,7 +12,8 @@ const Signin = () => {
     const from = location.state?.from?.pathname || '/';
 
 
-    const {signin, signInWithGoogle} = useContext(AuthContext);
+
+    const {signin, signInWithGoogle, loading} = useContext(AuthContext);
 
     //  Submit 
     const handleSubmit = event => {
@@ -40,6 +42,12 @@ const Signin = () => {
             })
             .catch(error => toast.error(error.message));
     };
+
+    if (loading) {
+        return (
+            <LoadingSpinner></LoadingSpinner>
+        );
+    }
 
     return (
         <section className="w-full">
