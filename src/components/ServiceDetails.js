@@ -5,16 +5,15 @@ import ServiceSection from "./ServiceSection";
 
 const ServiceDetails = () => {
 
-    // const [details, setDetails] = useState();
-
     const serviceDetails = useLoaderData();
+    const {_id} = serviceDetails;
 
-    console.log(serviceDetails);
+    console.log(_id);
 
     return (
         <div className="container mx-auto">
             <ServiceSection serviceDetails={serviceDetails}></ServiceSection>
-            <ReviewSection></ReviewSection>
+            <ReviewSection _id={_id}></ReviewSection>
         </div>
     );
 };
